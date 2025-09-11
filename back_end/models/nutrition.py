@@ -59,6 +59,3 @@ class NutritionModel(db.Model):
     db.session.delete(self)
     db.session.commit()
    
-   #continuar aqui
-  def update_to_db(self):
-    db.session.commit()
