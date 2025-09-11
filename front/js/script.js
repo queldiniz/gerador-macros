@@ -104,8 +104,7 @@ function editPatient(id, name, height, weight, age, gender, activity_level, calo
 }
 
 // Excluir paciente
-async function deletePatient(id) {
-  if (!confirm("Tem certeza que deseja excluir este paciente?")) return;
+async function deletePatient(id) { 
   try {
     const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
     if (!response.ok) throw new Error("Erro ao excluir paciente");
