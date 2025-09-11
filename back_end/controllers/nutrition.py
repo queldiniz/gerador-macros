@@ -14,14 +14,14 @@ nutritions_list_schema = NutritionSchema(many=True)
 
 # Definindo o modelo (apenas para a documentação Swagger)
 item = nutrition_ns.model('Nutrition', {
-    'Nome': fields.String(required=True, description='Nome do paciente'),
-    'Altura': fields.Float(default=0, description='Sua altura em metros'),
-    'Peso': fields.Float(default=0, description='Seu peso em kg'),
-    'Idade': fields.Integer(default=0, description='Sua idade em anos'),
-    'Genero': fields.String(required=True, description='Seu genero, masculino ou feminino'),
-    'Nivel_Atividade': fields.String(required=True, description='Nivel de atividade fisica, baixo, moderado ou alto'),
-    'Calorias': fields.Float(default=0, description='Quantidade de calorias diarias recomendadas'),
-    'Percentual_Gordura_Corporal': fields.Float(default=0, description='Percentual de gordura corporal')      
+    'name': fields.String(required=True, description='Nome do paciente'),
+    'height': fields.Float(default=0, description='Sua altura em metros'),
+    'weight': fields.Float(default=0, description='Seu peso em kg'),
+    'age': fields.Integer(default=0, description='Sua idade em anos'),
+    'gender': fields.String(required=True, description='Seu genero, masculino ou feminino'),
+    'activity_level': fields.String(required=True, description='Nivel de atividade fisica, baixo, moderado ou alto'),
+    'calories': fields.Float(default=0, description='Quantidade de calorias diarias recomendadas'),
+    'body_percentage': fields.Float(default=0, description='Percentual de gordura corporal')      
 })
 
 # Rota para operações com um único registro (GET, PUT, DELETE)
@@ -62,12 +62,14 @@ class Nutrition(Resource):
 # Rota para operações com múltiplos registros (GET, POST)
 @nutrition_ns.route('/')
 class NutritionList(Resource):
+    #para pegar todos os registros
     def get(self):
         nutritions = NutritionModel.find_all()
         return nutritions_list_schema.dump(nutritions), 200
     
     @nutrition_ns.expect(item)
     @nutrition_ns.doc('Create a nutrition item')
+    #para cadastrar um novo registro
     def post(self):
         nutrition_json = request.get_json()
         if not nutrition_json:

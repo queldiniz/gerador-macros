@@ -1,10 +1,13 @@
 from flask import Flask, Blueprint
 from flask_restx import Api
 
+
+
 class Server():
     def __init__(self):
         # Cria a aplicação Flask
         self.app = Flask(__name__)
+          
 
         # Cria um Blueprint para isolar a API
         # url_prefix='/api' significa que todas as rotas vão começar com /api
@@ -39,7 +42,7 @@ class Server():
         """
         return self.api.namespace(
             name='nutrition',
-            description='Operações de cálculo e registro de nutrição',
+            description='Registro e consulta de informações nutricionais',
             path='/nutrition'
         )
 

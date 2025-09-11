@@ -8,6 +8,9 @@ from back_end.controllers import nutrition  # importa para registrar o namespace
 api = server.api
 app = server.app
 
+#Habilita CORS de forma global, assim é possivel usar qualquer cabeçalho e todas as origens (além de permitir métodos comuns como GET, POST, PUT, DELETE)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 if __name__ == '__main__':
     # primeiro registra o app no SQLAlchemy e no Marshmallow
     db.init_app(app)
