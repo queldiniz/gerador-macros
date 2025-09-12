@@ -122,8 +122,7 @@ async function deletePatient(id) {
   }
 }
 
-// --- SEÇÃO DE BUSCA ---
-
+// --- section search ---
 async function handleSearch() {
   const searchTerm = document.getElementById("search").value.trim();
   if (!searchTerm) {
@@ -158,7 +157,6 @@ async function searchPatientsByName(name) {
     const response = await fetch(`${API_URL}/?name=${encodeURIComponent(name)}`);
     if (!response.ok) throw new Error("Erro ao buscar pacientes por nome");
     const patients = await response.json();
-    // Filtro opcional para correspondência exata (descomente se precisar)
     // const exactMatches = patients.filter(p => p.name.toLowerCase() === name.toLowerCase());
     // renderTable(exactMatches);
     renderTable(patients); // Envia os resultados para a função de renderização
@@ -179,7 +177,7 @@ document.getElementById("search").addEventListener("keyup", (event) => {
 // Carrega a lista inicial ao abrir a página
 loadPatients();
 
-
+//Configuração do slider
 document.addEventListener('DOMContentLoaded', () => {
     const sliderWrapper = document.querySelector('.slider-wrapper');
     // Se não encontrar o slider na página, não faz nada
@@ -211,7 +209,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Opcional: transição automática de slides
-    // setInterval(() => {
-    //     nextBtn.click();
-    // }, 5000); // Muda de slide a cada 5 segundos
+    setInterval(() => {
+        nextBtn.click();
+    }, 15000); // Muda de slide a cada 5 segundos
 });
+
+
+//configuração do botão de voltar ao topo
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > 200) {
+    document.querySelector(".back-to-top-button").style.display = "block";
+  } else {
+    document.querySelector(".back-to-top-button").style.display = "none";
+  }
+});
+
+document
+  .querySelector(".back-to-top-button a")
+  .addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default anchor link behavior
+    window.scrollTo({
+      top: 0, // Scroll to top of page
+      behavior: "smooth", // Smooth scrolling
+    });
+  });
