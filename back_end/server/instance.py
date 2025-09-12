@@ -1,6 +1,9 @@
 from flask import Flask, Blueprint
 from flask_restx import Api
 
+# para rodar a aplicação faca:
+# pip install -r requirements.txt
+# python app.py
 
 
 class Server():
