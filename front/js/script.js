@@ -178,3 +178,40 @@ document.getElementById("search").addEventListener("keyup", (event) => {
 
 // Carrega a lista inicial ao abrir a página
 loadPatients();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    // Se não encontrar o slider na página, não faz nada
+    if (!sliderWrapper) return;
+
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    // Função para mover o slider para um slide específico
+    function goToSlide(index) {
+        // Move o wrapper horizontalmente
+        sliderWrapper.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    // Evento para o botão "Próximo"
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides; // O '%' faz o slider voltar ao início
+        goToSlide(currentIndex);
+    });
+
+    // Evento para o botão "Anterior"
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Lógica para voltar para o último slide
+        goToSlide(currentIndex);
+    });
+
+    // Opcional: transição automática de slides
+    // setInterval(() => {
+    //     nextBtn.click();
+    // }, 5000); // Muda de slide a cada 5 segundos
+});

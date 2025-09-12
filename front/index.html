@@ -1,71 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nutra-se e evolua</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <script  defer src="js/script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
 </head>
 <body>
-  <h1>Acompanhe sua evolução!</h1>
+  <header class="cabecalho" id="header">
+    <div class="container-nav">
+        
+        <nav class="nav-menu">
+            <ul class="lista-nao-ordenada">
+                <li class="item-lista-cabecalho">
+                    <a href="#home">Home</a>
+                </li>
+                <li class="item-lista-cabecalho">
+                    <a href="#info-alimentacao">Alimentos</a>
+                </li>
+                <li class="item-lista-cabecalho">
+                    <a href="#pacientes">Pacientes</a>
+                </li>
+                <li class="item-lista-cabecalho">
+                    <a href="#calculadora">Calcular</a>
+                </li>
+            </ul>
+        </nav>
 
-  <h2 id="formTitle">Adicione seus dados</h2>
-  <form id="ntrForm">
-    <input type="text" id="name" name="name" placeholder="Nome" required>
-    <input type="number" step="0.01" id="height" name="height" placeholder="Altura (m)" required>
-    <input type="number" step="0.01" id="weight" name="weight" placeholder="Peso (kg)" required>
-    <input type="number" id="age" name="age" placeholder="Idade" required>
-    
-    <select id="gender" name="gender" required>
-      <option value="" disabled selected>Gênero</option>
-      <option value="Masculino">Masculino</option>
-      <option value="Feminino">Feminino</option>
-      
-    </select>
+        <div class="menu-direita">
+            <form action="#">
+                <input type="text" placeholder="Pesquisar..." class="search-bar" id="searchInput">
+                <button class="nav-botao" type="submit" id="searchButton">ir</button>
+            </form>
+        </div>
 
-    <!-- nivel de atividade fisica -->
-     <select name="activity_level" id="activity_level">
-      <option value="" disabled selected>Nível de Atividade Física</option>
-      <option value="Sedentário">Sedentário</option>
-      <option value="Levemente Ativo">Levemente Ativo</option>
-      <option value="Moderadamente Ativo">Moderadamente Ativo</option>
-      <option value="Muito Ativo">Muito Ativo</option>
-      <option value="Extremamente Ativo">Extremamente Ativo</option>
-     </select>
+    </div>
+</header>
 
-     <input type="number" id="calories" name="calories" placeholder="Consumo de Calorias" required>
-    <input type="number" step="0.01" id="body_percentage" name="body_percentage" placeholder="% de Gordura Corporal" required>
+ <section class="hero-slider" id="home">
+    <div class="slider-wrapper">
+        
+        <div class="slide">
+            <div class="slide-content">
+                <div class="slide-text">
+                    <h1>Seja sua <br> Melhor versão</h1>
+                    <h2>Cuide da mente e corpo</h2>
+                    <h3><i>Comece</i></h3>
+                </div>
+                <div class="slide-image">
+                    <div class="stripe-color1"></div>
+                    <div class="stripe-color2"></div>
+                    <img src="img/vista-superior-de-uma-variedade-de-vegetais-em-um-saco-de-papel.jpg" alt="Saco de papel com vegetais frescos">
+                </div>
+            </div>
+        </div>
 
-    <button type="submit">Salvar</button>
-    <button type="button" id="cancelEdit" style="display:none;">Cancelar</button>
-  </form>
+        <div class="slide">
+            <div class="slide-content">
+                <div class="slide-text">
+                    <h1>Immerse yourself <br> in the language</h1>
+                    <h2>accessible resources</h2>
+                    <h3>Let's go on our journey together</h3>
+                </div>
+                <div class="slide-image">
+                    <div class="stripe-color1" style="background-color: #a7d9d7;"></div>
+                    <div class="stripe-color2" style="background-color: #7185a4;"></div>
+                    <img src="img/almoco-saudavel-para-ir-embalado-na-lancheira.jpg" alt="Lancheira com almoço saudável">
+                </div>
+            </div>
+        </div>
 
-  <!-- Lista de Paciente do Programa Nutra-se e Evolua -->
-   <!-- Lista de Pacientes do Programa Nutra-se e Evolua -->
-<table id="patientsTable">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Altura</th>
-      <th>Peso</th>
-      <th>Idade</th>
-      <th>Gênero</th>
-      <th>Nível de Atividade Física</th>
-      <th>Calorias</th>
-      <th>% Gordura</th>
-     
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-    <p>
-    <input type="text" id="search" placeholder="Buscar por ID ou Nome...">
-    <button type="button" id="search-btn">Procurar</button> 
-    </p>
+        </div>
 
-    <!-- Vai exibir a quantidade ideal de macros para o objetivo do paciente como qtd calorias, % gordura -->
-    <pre id="outSugestao"></pre>
+    <button class="slider-btn prev-btn" aria-label="Slide Anterior">&#10094;</button>
+    <button class="slider-btn next-btn" aria-label="Próximo Slide">&#10095;</button>
+</section>
+
+ <section class="info-alimentacao" id="info-alimentacao">
+  <div class="card-container">
+    <h1>Alimentos</h1>
+
+    <div class="card">
+      <img src="img/variedade-de-alergenos-alimentares-comuns-para-pessoas.jpg" alt="Ícone de carboidrato">
+      <h2>Carboidrato</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam cumque architecto nemo, nobis optio culpa, animi ex labore sed fugit, repellendus beatae. Cum sapiente quaerat dolores aut ut nemo eligendi?</p>
+    </div>
+
+    <div class="card">
+      <img src="img/ingredientes-deliciosos-para-dieta-cetogenica.jpg" alt="Ícone de proteína">
+      <h2>Proteína</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus voluptates magni neque, aperiam enim nesciunt? Debitis magnam praesentium magni maiores, eius fuga numquam vitae possimus, minus soluta dignissimos quidem blanditiis?</p>
+    </div>
+
+    <div class="card">
+      <img src="img/vista-superior-de-colheres-com-variedade-de-nozes.jpg" alt="Ícone de gordura">
+      <h2>Gordura</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non incidunt, eveniet voluptatibus vel ullam maiores odio dolorem ipsa in fugiat sint quidem velit sed consequuntur magnam assumenda suscipit. Cum, adipisci.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/visao-dos-alergenos-comumente-encontrados-em-graos.jpg" alt="Ícone de fibras">
+      <h2>Fibras</h2>
+      <p>Fibras são importantes Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequatur obcaecati minima asperiores vero enim itaque ab labore, laborum eaque eveniet dolorum laboriosam repellendus rem quo a, sed quidem id?</p>
+    </div>
+
+    <div class="card">
+      <img src="img/conjunto-de-frutas-tropicais-no-fundo-branco.jpg" alt="Ícone Frutas">
+      <h2>Frutas</h2>
+      <p>Fibras são importantes Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequatur obcaecati minima asperiores vero enim itaque ab labore, laborum eaque eveniet dolorum laboriosam repellendus rem quo a, sed quidem id?</p>
+    </div>
+
+    <div class="card">
+      <img src="img/vegetais-saudaveis-na-mesa-de-madeira.jpg" alt="Ícone Frutas">
+      <h2>Vegetais</h2>
+      <p>Fibras são importantes Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit consequatur obcaecati minima asperiores vero enim itaque ab labore, laborum eaque eveniet dolorum laboriosam repellendus rem quo a, sed quidem id?</p>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- pacientes -->
+<section class="pacientes" id="pacientes">
+    <div class="pacientes-container">
+
+        <div class="patient-list">
+            <h1>Lista de Pacientes</h1>
+            <table id="patientsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Altura</th>
+                        <th>Peso</th>
+                        <th>Idade</th>
+                        <th>Gênero</th>
+                        <th>Atividade</th>
+                        <th>Calorias</th>
+                        <th>% Gordura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Buscar por ID ou Nome...">
+                <button type="button" id="search-btn">Procurar</button>
+            </div>
+        </div>
+
+        <div class="patient-form">
+            <h1 id="formTitle">Adicionar Novo Paciente</h1>
+            <form id="ntrForm">
+                <input type="text" id="name" name="name" placeholder="Nome Completo" required>
+                <input type="number" step="0.01" id="height" name="height" placeholder="Altura (m)" required>
+                <input type="number" step="0.01" id="weight" name="weight" placeholder="Peso (kg)" required>
+                <input type="number" id="age" name="age" placeholder="Idade" required>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Gênero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+                <select name="activity_level" id="activity_level" required>
+                    <option value="" disabled selected>Nível de Atividade Física</option>
+                    <option value="Sedentário">Sedentário</option>
+                    <option value="Levemente Ativo">Levemente Ativo</option>
+                    <option value="Moderadamente Ativo">Moderadamente Ativo</option>
+                    <option value="Muito Ativo">Muito Ativo</option>
+                    <option value="Extremamente Ativo">Extremamente Ativo</option>
+                </select>
+                <input type="number" id="calories" name="calories" placeholder="Consumo de Calorias (kcal)" required>
+                <input type="number" step="0.01" id="body_percentage" name="body_percentage" placeholder="% de Gordura Corporal" required>
+                
+                <button type="submit">Salvar Paciente</button>
+                <button type="button" id="cancelEdit" style="display:none;">Cancelar Edição</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<section class="calcular-macro" id="calculadora">
+    <div id="macro-calculator" class="card-calculator">
+        <h2>Calculadora de Calorias e Macros</h2>
+        <p class="description">Descubra sua necessidade calórica diária e a divisão de macronutrientes para alcançar seu objetivo.</p>
+
+        <form id="macro-form">
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="calc-gender">Gênero:</label>
+                    <select id="calc-gender" required>
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="calc-age">Idade:</label>
+                    <input type="number" id="calc-age" placeholder="Ex: 25" required>
+                </div>
+                <div class="form-group">
+                    <label for="calc-weight">Peso (kg):</label>
+                    <input type="number" id="calc-weight" placeholder="Ex: 70" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="calc-height">Altura (cm):</label>
+                    <input type="number" id="calc-height" placeholder="Ex: 175" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="calc-activity">Nível de Atividade Física:</label>
+                <select id="calc-activity" required>
+                    <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
+                    <option value="1.375">Levemente Ativo (exercício leve 1-3 dias/semana)</option>
+                    <option value="1.55" selected>Moderadamente Ativo (exercício moderado 3-5 dias/semana)</option>
+                    <option value="1.725">Muito Ativo (exercício pesado 6-7 dias/semana)</option>
+                    <option value="1.9">Extremamente Ativo (trabalho físico + exercício pesado)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Qual seu objetivo?</label>
+                <div class="goal-options">
+                    <div class="radio-option">
+                        <input type="radio" id="goal-loss" name="goal" value="loss" required>
+                        <label for="goal-loss">Emagrecimento (-300 kcal)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="goal-maintain" name="goal" value="maintain" checked>
+                        <label for="goal-maintain">Manter o Peso</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="goal-gain" name="goal" value="gain">
+                        <label for="goal-gain">Ganho de Massa (+300 kcal)</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Calcular Macros</button>
+        </form>
+
+        <div id="macro-results" class="results-container" style="display: none;">
+            <h3>Seus Resultados Estimados</h3>
+            
+            <div class="result-item">
+                <span>Metabolismo Basal (TMB):</span>
+                <strong id="result-bmr">0 kcal</strong>
+            </div>
+
+            <div class="result-item">
+                <span>Gasto Calórico Diário (TDEE):</span>
+                <strong id="result-tdee">0 kcal</strong>
+            </div>
+
+            <div class="result-item highlight">
+                <span>Meta Calórica para seu Objetivo:</span>
+                <strong id="result-calories">0 kcal</strong>
+            </div>
+
+            <h4>Divisão Sugerida de Macros:</h4>
+            <ul class="macros-list">
+                <li>Proteínas (40%): <strong id="result-protein">0 g</strong></li>
+                <li>Carboidratos (40%): <strong id="result-carbs">0 g</strong></li>
+                <li>Gorduras (20%): <strong id="result-fat">0 g</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+  
 </body>
 </html>

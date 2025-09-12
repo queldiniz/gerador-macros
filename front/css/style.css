@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bungee&family=Bungee+Inline&family=Cinzel:wght@400;500;600&family=Festive&family=Fira+Sans:wght@300;400;500;600&family=Gelasio:wght@400;500;700&family=Henny+Penny&family=Hubballi&family=Inspiration&family=Jacques+Francois+Shadow&family=Lato:ital,wght@0,300;1,700&family=Lavishly+Yours&family=Monofett&family=Mystery+Quest&family=Nunito:wght@500;700;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display+SC:wght@400;700&family=Poppins:wght@200;300;400;500;600;700;800&family=Quattrocento&family=Righteous&family=Sarala:wght@400;700&family=Satisfy&family=Water+Brush&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Jost:wght@200;300&family=Lora:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+  
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+  }
+  
+  html {
+    font-size: 18px;
+  
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+   body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: var(--body-font-size, 14px);
+    line-height: 1.5;
+    color: var(--fgColor-default, var(--color-fg-default));
+    background-color: var(--bgColor-default, var(--color-canvas-default));
+  }
+
+
+
+  
+ 
+  /* cabecalho + nav */
+  header {
+    display: block;
+  }
+
+  
+/* ================================================================ */
+/* HEADER E NAVEGAÇÃO MODERNIZADOS */
+/* ================================================================ */
+
+.cabecalho {
+    background-color: #ffffff;
+    padding: 0 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-menu,
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 25px;
+}
+
+.nav-menu a {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #4c546c;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #4c546c;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.menu-direita {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: normal;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #4c546c;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(76, 84, 108, 0.2);
+}
+
+.nav-botao {
+    background-color: #4c546c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.nav-botao:hover {
+    background-color: #3a4155;
+}
+  
+  /* Section banner */
+/* O container principal que será a "janela" do nosso slider */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Ocupa 90% da altura da tela */
+    overflow: hidden; /* Esconde os slides que estão fora da "janela" */
+    background-color: #f4f4f4; /* Cor de fundo caso as imagens demorem a carregar */
+}
+
+/* O wrapper que contém todos os slides e que se move */
+.slider-wrapper {
+    display: flex; /* Alinha os slides lado a lado */
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out; /* Animação suave da transição */
+}
+
+/* Cada slide individual */
+.slide {
+    flex: 0 0 100%; /* Garante que cada slide ocupe 100% da largura do container */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px; /* Largura máxima do conteúdo dentro do slide */
+    gap: 40px;
+}
+
+.slide-text {
+    flex-basis: 50%;
+}
+
+.slide-text h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    color: #d3ce96;
+    line-height: 1.2;
+}
+
+.slide-text h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #78c1ce;
+    margin-top: 10px;
+}
+
+.slide-text h3 {
+    font-size: 1.5rem;
+    color: #b6bdbe;
+    margin-top: 20px;
+}
+
+/* Container da imagem e das faixas decorativas */
+.slide-image {
+    flex-basis: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.slide-image img {
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.slide-image .stripe-color1,
+.slide-image .stripe-color2 {
+    width: 70%;
+    height: 30px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.slide-image .stripe-color1 { background-color: #92a1cd; }
+.slide-image .stripe-color2 { background-color: #bcb285; }
+
+/* Botões de Navegação */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn {
+    left: 30px;
+}
+
+.next-btn {
+    right: 30px;
+}
+
+
+
+
+  /* section alimentos - CARDS */
+  /* Estilos para a seção de alimentos */
+.info-alimentacao h1 {
+  width: 100%; /* Faz o título ocupar a largura toda */
+  text-align: center; /* Centraliza o texto do título */
+  margin-bottom: 30px; /* Adiciona um espaço abaixo do título */
+  font-size: 2.5rem; /* Aumenta um pouco o tamanho do título */
+}
+
+/* O container principal dos cards */
+.card-container {
+  display: flex; /* ATIVA O FLEXBOX */
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  padding: 20px; /* Adiciona um respiro nas laterais */
+  gap: 30px; /* Cria um espaço de 30px entre os cards (vertical e horizontal) */
+}
+
+/* Estilo de cada card individual */
+.card {
+  /* Define que cada card deve tentar ocupar 45% do espaço do container */
+  /* Isso garante que apenas 2 cards caibam por linha (45% + 45% = 90%) */
+  flex-basis: 45%; 
+
+  max-width: 450px; /* Define uma largura máxima para não ficarem gigantes em telas grandes */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra um pouco mais suave */
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px solid #eee; /* Adiciona uma borda sutil */
+}
+
+.card img {
+  width: 93px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Estilo geral da seção */
+section.pacientes {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Fundo cinza bem claro */
+    border-top: 1px solid #e9ecef;
+}
+
+/* Container principal que cria o layout de duas colunas */
+.pacientes-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* A tabela ocupa 2/3 e o form 1/3 */
+    gap: 40px; /* Espaço entre as colunas */
+    align-items: flex-start;
+}
+
+/* Estilos para a coluna da lista (tabela) */
+.patient-list h1,
+.patient-form h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+/* Tabela de pacientes */
+#patientsTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden; /* Garante que o border-radius aplique nos cantos da tabela */
+}
+
+#patientsTable th,
+#patientsTable td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#patientsTable thead th {
+    background-color: #e9ecef;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#patientsTable tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#patientsTable tbody tr:hover {
+    background-color: #dbe4f0; /* Destaque ao passar o mouse */
+}
+
+/* Estilos para a coluna do formulário */
+.patient-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#ntrForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas para os inputs */
+    gap: 15px;
+}
+
+/* Faz os inputs de nome e calorias ocuparem a largura toda */
+#ntrForm input#name, #ntrForm input#calories, #ntrForm select#activity_level {
+    grid-column: 1 / -1;
+}
+
+#ntrForm input,
+#ntrForm select,
+#ntrForm button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+#ntrForm button[type="submit"] {
+    grid-column: 1 / -1; /* Botão ocupa a largura toda */
+    background-color: #4c546c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#ntrForm button[type="submit"]:hover {
+    background-color: #3a4155;
+}
+
+/* Estilos para a busca */
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-container input {
+    flex-grow: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+}
+
+.search-container button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* calculadora de Macronutrientes */
+/* Define a seção como um container principal */
+section.calcular-macro {
+    width: 100%;
+    padding: 50px 20px; /* Espaçamento vertical e horizontal para a seção */
+    background-color: #ffffff; /* Cor de fundo geral da página, se necessário */
+}
+
+/* Transforma o #macro-calculator no nosso "bloco de conteúdo" principal */
+#macro-calculator.card-calculator {
+    max-width: 900px; /* Uma boa largura para um formulário complexo */
+    margin: 0 auto; /* Centraliza o bloco na tela */
+    background-color: #f0f4f8; /* A cor de fundo azul-claro/cinza do exemplo */
+    padding: 40px 50px; /* Espaçamento interno generoso */
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0 8px 24px rgba(18, 43, 70, 0.1); /* Sombra suave */
+    border: 1px solid #e1e8ed;
+}
+
+/* Estilos para a tipografia dentro da calculadora */
+#macro-calculator h2 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+#macro-calculator p.description {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #555;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos para os grupos do formulário */
+#macro-calculator .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-size: 1rem;
+}
+
+/* Estilo para os inputs e selects */
+#macro-calculator input[type="number"],
+#macro-calculator select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cddde8;
+    background-color: #ffffff; /* Fundo branco para se destacar */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#macro-calculator input[type="number"]:focus,
+#macro-calculator select:focus {
+    outline: none;
+    border-color: #4c546c; /* Cor do seu tema ao focar */
+    box-shadow: 0 0 0 3px rgba(76, 84, 108, 0.2);
+}
+
+/* Organiza os campos de dados pessoais em um grid */
+#macro-calculator .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Grid responsivo */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Opções de objetivo */
+#macro-calculator .goal-options {
+    display: flex;
+    justify-content: space-around;
+    background-color: #e1e8ed; /* Cor de fundo um pouco mais escura */
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Botão principal */
+#macro-calculator button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4c546c; /* Cor principal do seu tema */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#macro-calculator button[type="submit"]:hover {
+    background-color: #3a4155;
+    transform: translateY(-2px); /* Efeito de elevação sutil */
+}
+
+/* Estilo da área de resultados (mantém o que já tínhamos, que funciona bem) */
+#macro-calculator .results-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #cddde8;
+}
+  
+  /* RODAPE */
+  .rodape {
+    padding: 25px;
+    color: white;
+    background-color: #4c546c;
+    font-size: 20px;
+    font-family: "Space Mono";
+  }

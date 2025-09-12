@@ -64,9 +64,20 @@ class Nutrition(Resource):
 class NutritionList(Resource):
     #para pegar todos os registros
     def get(self):
-        nutritions = NutritionModel.find_all()
+            # 1. Pega o parâmetro 'name' da URL. Se não existir, será None.
+        name_query = request.args.get('name')
+
+        # 2. Se um nome foi fornecido na URL, faz uma busca filtrada
+        if name_query:
+            # .ilike() faz uma busca case-insensitive (não diferencia 'Beca' de 'beca')
+            # Os '%' permitem buscas parciais (buscar por 'en' encontrará 'enzo')
+            nutritions = NutritionModel.query.filter(NutritionModel.name.ilike(f'%{name_query}%')).all()
+        else:
+            # 3. Se nenhum nome foi fornecido, retorna todos os pacientes
+            nutritions = NutritionModel.find_all()
+        
+        # 4. Retorna a lista (completa ou filtrada) para o front-end
         return nutritions_list_schema.dump(nutritions), 200
-    
     @nutrition_ns.expect(item)
     @nutrition_ns.doc('Create a nutrition item')
     #para cadastrar um novo registro
