@@ -12,7 +12,7 @@ nutrition_ns = server.nutrition_ns
 nutrition_schema = NutritionSchema()
 nutritions_list_schema = NutritionSchema(many=True)
 
-# Definindo o modelo (apenas para a documentação Swagger)
+# Definindo o modelo para Nutrition (apenas para a documentação Swagger)
 item = nutrition_ns.model('Nutrition', {
     'name': fields.String(required=True, description='Nome do paciente'),
     'height': fields.Float(default=0, description='Sua altura em metros'),
@@ -64,7 +64,7 @@ class Nutrition(Resource):
 class NutritionList(Resource):
     #para pegar todos os registros
     def get(self):
-            # 1. Pega o parâmetro 'name' da URL. Se não existir, será None.
+        # 1. Pega o parâmetro 'name' da URL. Se não existir, será None.
         name_query = request.args.get('name')
 
         # 2. Se um nome foi fornecido na URL, faz uma busca filtrada
@@ -78,6 +78,7 @@ class NutritionList(Resource):
         
         # 4. Retorna a lista (completa ou filtrada) para o front-end
         return nutritions_list_schema.dump(nutritions), 200
+        
     @nutrition_ns.expect(item)
     @nutrition_ns.doc('Create a nutrition item')
     #para cadastrar um novo registro

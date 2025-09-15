@@ -24,18 +24,15 @@
                 <li class="item-lista-cabecalho">
                     <a href="#pacientes">Pacientes</a>
                 </li>
-                <li class="item-lista-cabecalho">
-                    <a href="#calculadora">Calcular</a>
-                </li>
             </ul>
         </nav>
 
-        <div class="menu-direita">
+        <!-- <div class="menu-direita">
             <form action="#">
                 <input type="text" placeholder="Pesquisar..." class="search-bar" id="searchInput">
                 <button class="nav-botao" type="submit" id="searchButton">ir</button>
             </form>
-        </div>
+        </div> -->
 
     </div>
 </header>
@@ -192,94 +189,11 @@
     </div>
 </section>
 
-<section class="calcular-macro" id="calculadora">
-    <div id="macro-calculator" class="card-calculator">
-        <h2>Minha evolução</h2>
-        <p class="description">Descubra sua necessidade calórica diária e a divisão de macronutrientes para alcançar seu objetivo.</p>
 
-        <form id="macro-form">
-            
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="calc-gender">Gênero:</label>
-                    <select id="calc-gender" required>
-                        <option value="male">Masculino</option>
-                        <option value="female">Feminino</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="calc-age">Idade:</label>
-                    <input type="number" id="calc-age" placeholder="Ex: 25" required>
-                </div>
-                <div class="form-group">
-                    <label for="calc-weight">Peso (kg):</label>
-                    <input type="number" id="calc-weight" placeholder="Ex: 70" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="calc-height">Altura (cm):</label>
-                    <input type="number" id="calc-height" placeholder="Ex: 175" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="calc-activity">Nível de Atividade Física:</label>
-                <select id="calc-activity" required>
-                    <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
-                    <option value="1.375">Levemente Ativo (exercício leve 1-3 dias/semana)</option>
-                    <option value="1.55" selected>Moderadamente Ativo (exercício moderado 3-5 dias/semana)</option>
-                    <option value="1.725">Muito Ativo (exercício pesado 6-7 dias/semana)</option>
-                    <option value="1.9">Extremamente Ativo (trabalho físico + exercício pesado)</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>Qual seu objetivo?</label>
-                <div class="goal-options">
-                    <div class="radio-option">
-                        <input type="radio" id="goal-loss" name="goal" value="loss" required>
-                        <label for="goal-loss">Emagrecimento (-300 kcal)</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="goal-maintain" name="goal" value="maintain" checked>
-                        <label for="goal-maintain">Manter o Peso</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="goal-gain" name="goal" value="gain">
-                        <label for="goal-gain">Ganho de Massa (+300 kcal)</label>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit">Calcular Macros</button>
-        </form>
-
-        <div id="macro-results" class="results-container" style="display: none;">
-            <h3>Seus Resultados Estimados</h3>
-            
-            <div class="result-item">
-                <span>Metabolismo Basal (TMB):</span>
-                <strong id="result-bmr">0 kcal</strong>
-            </div>
-
-            <div class="result-item">
-                <span>Gasto Calórico Diário (TDEE):</span>
-                <strong id="result-tdee">0 kcal</strong>
-            </div>
-
-            <div class="result-item highlight">
-                <span>Meta Calórica para seu Objetivo:</span>
-                <strong id="result-calories">0 kcal</strong>
-            </div>
-
-            <h4>Divisão Sugerida de Macros:</h4>
-            <ul class="macros-list">
-                <li>Proteínas (40%): <strong id="result-protein">0 g</strong></li>
-                <li>Carboidratos (40%): <strong id="result-carbs">0 g</strong></li>
-                <li>Gorduras (20%): <strong id="result-fat">0 g</strong></li>
-            </ul>
-        </div>
-    </div>
-</section>
+<footer class="rodape">
+        <img src="img/nutritional-pyramid.png" class="rodape" alt="">
+        <p>&copy; 2024 Nutra-se e evolua. Todos os direitos reservados.</p>
+</footer>
 
   <script src="js/script.js"></script>  
 </body>
