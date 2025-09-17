@@ -19,3 +19,7 @@ Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reloa
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
 Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da API em execução.
+
+<p align="center">
+  <img src="img-readme/rotas.png" alt="Exibição Swagger" width="300"/>
+</p>
