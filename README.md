@@ -18,4 +18,4 @@ Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reloa
 ```bash
 (env)$ flask run --host 0.0.0.0 --port 5000 --reload
 ```
-Abra o http://localhost:5000/doc/ no navegador para verificar o status da API em execução.
+Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da API em execução.
