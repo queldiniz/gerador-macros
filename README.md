@@ -21,5 +21,5 @@ Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reloa
 Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da API em execução.
 
 <p align="center">
-  <img src="img-readme/rotas.png" alt="Exibição Swagger" width="300"/>
+  <img src="img-readme/rotas.png" alt="Exibição Swagger" width="1000">
 </p>
