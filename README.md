@@ -16,3 +16,14 @@ Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da A
 <p align="center">
   <img src="img-readme/rotas.png" alt="Exibição Swagger" width="1000">
 </p>
+
+## 🛠️ Tecnologias Utilizadas
+
+O back-end da aplicação foi construído com as seguintes tecnologias:
+
+* **Python:** Linguagem de programação principal.
+* **Flask:** Micro-framework web utilizado como base para a criação da API.
+* **Flask-RESTX:** Extensão para Flask que facilita a criação de APIs RESTful, com validação de dados e geração automática de documentação Swagger UI.
+* **SQLAlchemy:** ORM (Object-Relational Mapper) para interagir com o banco de dados de forma orientada a objetos.
+* **Flask-Marshmallow:** Para serialização/desserialização de objetos, convertendo facilmente os dados do banco para o formato JSON e vice-versa.
+* **Swagger UI:** Interface de documentação interativa gerada automaticamente pelo Flask-RESTX, permitindo visualizar e testar os endpoints da API diretamente no navegador.
