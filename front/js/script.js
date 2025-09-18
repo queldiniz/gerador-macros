@@ -13,11 +13,11 @@ async function loadPatients() {
   }
 }
 
-// Função CENTRAL para exibir dados na tabela (COM A CORREÇÃO)
+// Função CENTRAL para exibir dados na tabela
 function renderTable(patients) {
   const tbody = document.querySelector("#patientsTable tbody");
   
-  // A LINHA MAIS IMPORTANTE: Apaga todo o conteúdo anterior da tabela
+  //Apaga todo o conteúdo anterior da tabela
   tbody.innerHTML = ""; 
 
   // Se a lista de pacientes estiver vazia, mostra uma mensagem
