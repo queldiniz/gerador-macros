@@ -347,11 +347,11 @@ section.pacientes {
 
 /* Container principal que cria o layout de duas colunas */
 .pacientes-container {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr; /* A tabela ocupa 2/3 e o form 1/3 */
-    gap: 40px; /* Espaço entre as colunas */
+    gap: 50px; /* Espaço entre as colunas */
     align-items: flex-start;
 }
 
@@ -386,7 +386,8 @@ section.pacientes {
     font-weight: 600;
     color: #495057;
     font-size: 0.9rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    white-space: nowrap; /* Evita que o texto quebre */
 }
 
 #patientsTable tbody tr:nth-child(even) {

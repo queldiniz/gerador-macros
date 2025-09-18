@@ -5,3 +5,7 @@ class NutritionSchema(ma.SQLAlchemyAutoSchema):
   class Meta:
     model = NutritionModel
     load_instance = True
+    ordered = True
+
+
+#Schema de entrada (Payload)

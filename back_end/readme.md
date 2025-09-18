@@ -27,3 +27,22 @@ O back-end da aplicação foi construído com as seguintes tecnologias:
 * **SQLAlchemy:** ORM (Object-Relational Mapper) para interagir com o banco de dados de forma orientada a objetos.
 * **Flask-Marshmallow:** Para serialização/desserialização de objetos, convertendo facilmente os dados do banco para o formato JSON e vice-versa.
 * **Swagger UI:** Interface de documentação interativa gerada automaticamente pelo Flask-RESTX, permitindo visualizar e testar os endpoints da API diretamente no navegador.
+
+## 📂 Endpoints
+
+### ➕ Criar paciente
+**POST** `/nutrition/`
+
+**Body (JSON):**
+```json
+{
+  "name": "Maria Silva",
+  "height": 1.65,
+  "weight": 62.5,
+  "age": 29,
+  "gender": "Feminino",
+  "activity_level": "Moderadamente Ativo",
+  "calories": 2100,
+  "body_percentage": 22.5
+}
+
