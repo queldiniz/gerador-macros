@@ -1,29 +1,14 @@
-## Como executar
+# NutriAPI: Gestão Nutricional de Pacientes
 
-Será necessário ter todas as libs python listadas no `requirements.txt` instaladas. Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, ativar o ambiente virtual env para poder executar os comandos descritos abaixo.
+![Status: Concluído](https://img.shields.io/badge/status-concluído-brightgreen)
 
-```bash
-(env)$ pip install -r requirements.txt
-```
-Este comando instala as dependências/bibliotecas, descritas no arquivo requirements.txt.
+Este projeto consiste em uma API RESTful desenvolvida para o gerenciamento de informações nutricionais de pacientes. A aplicação back-end foi construída em **Python** utilizando o framework **Flask** e a extensão **Flask-RestX** para oferecer uma interface robusta, documentada e fácil de usar.
 
-Para executar a API basta executar:
-```bash
-(env)$ python app.py
-```
-Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da API em execução.
+O objetivo principal é fornecer endpoints para realizar as operações básicas de um sistema de cadastro (CRUD): criar, ler, atualizar e deletar registros de pacientes, permitindo que aplicações front-end ou outros serviços consumam e manipulem esses dados de forma centralizada e segura.
 
-<p align="center">
-  <img src="img-readme/rotas.png" alt="Exibição Swagger" width="1000">
-</p>
+## ✨ Principais Funcionalidades
 
-## 🛠️ Tecnologias Utilizadas
-
-O back-end da aplicação foi construído com as seguintes tecnologias:
-
-* **Python:** Linguagem de programação principal.
-* **Flask:** Micro-framework web utilizado como base para a criação da API.
-* **Flask-RESTX:** Extensão para Flask que facilita a criação de APIs RESTful, com validação de dados e geração automática de documentação Swagger UI.
-* **SQLAlchemy:** ORM (Object-Relational Mapper) para interagir com o banco de dados de forma orientada a objetos.
-* **Flask-Marshmallow:** Para serialização/desserialização de objetos, convertendo facilmente os dados do banco para o formato JSON e vice-versa.
-* **Swagger UI:** Interface de documentação interativa gerada automaticamente pelo Flask-RESTX, permitindo visualizar e testar os endpoints da API diretamente no navegador.
+- **Cadastro completo de pacientes:** Armazena dados como nome, altura, peso, idade e nível de atividade física.
+- **Listagem e Busca:** Permite consultar a lista completa de pacientes e também filtrar por nome.
+- **Gerenciamento individual:** Oferece rotas para consultar, atualizar e deletar um paciente específico através de seu ID ou Nome.
+- **Documentação Interativa:** Gera automaticamente uma documentação completa e testável com **Swagger UI**, facilitando o entendimento e o uso da API por outros desenvolvedores.
