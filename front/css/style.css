@@ -27,6 +27,11 @@
   header {
     display: block;
   }
+  ul {
+    list-style: none; /* remove os pontos */
+    padding: 0;       /* tira o recuo lateral */
+    margin: 0;
+  }
 
   
 /* ================================================================ */
@@ -248,7 +253,7 @@
 
 .slide-image .stripe-color1,
 .slide-image .stripe-color2 {
-    width: 70%;
+    width: 78%;
     height: 30px;
     margin-bottom: 15px;
     border-radius: 5px;

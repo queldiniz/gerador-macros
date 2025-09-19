@@ -27,7 +27,6 @@ item_payload = nutrition_ns.model('NutritionPayload', {
 })
 
 # Modelo de dados de saída para a documentação Swagger (usado com @marshal_with)
-# Herda do payload e adiciona campos que o servidor gera (id, calories, etc.)
 nutrition_response_model = nutrition_ns.inherit('NutritionResponse', item_payload, {
     'id': fields.Integer(readonly=True, description='O ID único do registo')
 })
@@ -39,27 +38,25 @@ class NutritionList(Resource):
     @nutrition_ns.doc('list_nutritions', params={'name': 'Filtra pacientes por nome (busca parcial)'})
     @nutrition_ns.marshal_list_with(nutrition_response_model)
     def get(self):
-        """ Lista todos os pacientes, com opção de filtrar por nome"""
+        """Lista todos os pacientes"""
         name_query = request.args.get('name')
         if name_query:
             nutritions = NutritionModel.query.filter(NutritionModel.name.ilike(f'%{name_query}%')).all()
         else:
             nutritions = NutritionModel.find_all()
         return nutritions_list_schema.dump(nutritions), 200
-        
+
     @nutrition_ns.doc('create_nutrition')
     @nutrition_ns.expect(item_payload, validate=True)
     @nutrition_ns.marshal_with(nutrition_response_model, code=201)
-    @nutrition_ns.response(400, 'Dados de entrada inválidos')
     def post(self):
-        """ Cria um novo registo de paciente"""
+        """Cria um novo registo de paciente"""
         nutrition_json = request.get_json()
-        # Marshmallow valida os dados e retorna uma instância de NutritionModel
         nutrition_data = nutrition_schema.load(nutrition_json)
         nutrition_data.save_to_db()
         return nutrition_schema.dump(nutrition_data), 201
 
-# Rota para um registo específico
+
 @nutrition_ns.route('/<int:id>')
 @nutrition_ns.param('id', 'O identificador do paciente')
 @nutrition_ns.response(404, 'Paciente não encontrado')
@@ -67,7 +64,6 @@ class Nutrition(Resource):
     @nutrition_ns.doc('get_nutrition')
     @nutrition_ns.marshal_with(nutrition_response_model)
     def get(self, id):
-        """Devolve os dados de um paciente pelo ID"""
         nutrition = NutritionModel.find_by_id(id)
         if nutrition:
             return nutrition_schema.dump(nutrition), 200
@@ -76,9 +72,7 @@ class Nutrition(Resource):
     @nutrition_ns.doc('update_nutrition')
     @nutrition_ns.expect(item_payload, validate=True)
     @nutrition_ns.marshal_with(nutrition_response_model)
-    @nutrition_ns.response(400, 'Dados de entrada inválidos')
     def put(self, id):
-        """ Atualiza os dados de um paciente"""
         nutrition = NutritionModel.find_by_id(id)
         if not nutrition:
             return {"message": "Paciente não encontrado"}, 404
@@ -91,11 +85,9 @@ class Nutrition(Resource):
     @nutrition_ns.doc('delete_nutrition')
     @nutrition_ns.response(204, 'Paciente apagado com sucesso')
     def delete(self, id):
-        """ Apaga um paciente pelo ID"""
         nutrition = NutritionModel.find_by_id(id)
         if not nutrition:
             return {"message": "Paciente não encontrado"}, 404
 
         nutrition.delete_from_db()
         return '', 204
-
