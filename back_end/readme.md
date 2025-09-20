@@ -15,6 +15,7 @@ Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da A
 
 <p align="center">
   <img src="img-readme/rotas.png" alt="Exibição Swagger" width="1000">
+  <img src="img-readme/Screenshot 2025-09-20 203428.png" alt="Exibição Swagger" width="1000">
 </p>
 
 ## 🛠️ Tecnologias Utilizadas
