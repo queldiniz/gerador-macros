@@ -10,3 +10,6 @@ A interface do usuário foi desenvolvida do zero, utilizando as tecnologias esse
     * **Eventos e Interatividade:** Gerencia todos os eventos do usuário, como cliques em botões, submissão de formulários e a lógica do carrossel de imagens.
 * **Font Awesome:** Biblioteca de ícones utilizada para melhorar a usabilidade e o design da interface (ex: ícone "voltar ao topo").
 * **Google Fonts:** Serviço utilizado para importar as fontes customizadas (Poppins e Roboto), contribuindo para a identidade visual do projeto.
+<p align="center">
+  <img src="img/front.png" alt="Interface do Sistema" width="1000">
+</p>

@@ -18,7 +18,7 @@ class NutritionModel(db.Model):
     gender = db.Column(db.String(10), nullable=False)
     activity_level = db.Column(db.String(20), nullable=False)
 
-    # Informações opcionais, podem ser nulas (calculadas posteriormente)
+    # Informações opcionais, podem ser nulas
     calories = db.Column(db.Float(precision=2), nullable=True)
     body_percentage = db.Column(db.Float(precision=2), nullable=True)
     

@@ -8,4 +8,3 @@ class NutritionSchema(ma.SQLAlchemyAutoSchema):
     ordered = True
 
 
-#Schema de entrada (Payload)
