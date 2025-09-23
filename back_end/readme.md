@@ -14,7 +14,7 @@ Para executar a API basta executar:
 Abra o (http://localhost:5000/api/doc) no navegador para verificar o status da API em execução.
 
 <p align="center">
-  <img src="img-readme/rotas.png" alt="Exibição Swagger" width="1000">
+  <img src="img-readme/back.png" alt="Exibição Swagger" width="1000">
   <img src="img-readme/Screenshot 2025-09-20 203428.png" alt="Exibição Swagger" width="1000">
 </p>
 
