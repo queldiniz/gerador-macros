@@ -21,8 +21,6 @@
 
 
 
-  
- 
   /* cabecalho + nav */
   header {
     display: block;
@@ -34,9 +32,7 @@
   }
 
   
-/* ================================================================ */
-/* HEADER E NAVEGAÇÃO MODERNIZADOS */
-/* ================================================================ */
+/*  estilo do header e nav */
 
 .cabecalho {
     background-color: #ffffff;
@@ -138,44 +134,31 @@
 .back-to-top-button {
   z-index: 1;
   position: fixed;
-  /* Stay in place on scroll */
   bottom: 20px;
-  /* Distance from bottom */
   right: 20px;
-  /* Distance from right */
   z-index: 100;
-  /* Sit on top of other elements */
   display: none;
-  /* Initially hidden */
 }
 
 .back-to-top-button a {
   display: block;
   width: 50px;
-  /* Button width */
   height: 50px;
-  /* Button height */
   text-align: center;
   line-height: 50px;
-  /* Center text vertically */
   border-radius: 50%;
-  /* Make it round */
   background-color: #333;
-  /* Button color */
   color: #fff;
-  /* Text color */
   font-size: 20px;
-  /* Font size for icon */
   transition: background-color 0.3s ease;
-  /* Smooth hover effect */
 }
 
 .back-to-top-button a:hover {
   background-color: #444;
-  /* Darker color on hover */
 }
   
-  /* Section banner */
+  
+/* Section banner */
 /* O container principal que será a "janela" do nosso slider */
 .hero-slider {
     position: relative;
@@ -296,47 +279,140 @@
 }
 
 
-
-
-  /* section alimentos - CARDS */
-  /* Estilos para a seção de alimentos */
-.info-alimentacao h1 {
-  width: 100%; /* Faz o título ocupar a largura toda */
-  text-align: center; /* Centraliza o texto do título */
-  margin-bottom: 30px; /* Adiciona um espaço abaixo do título */
-  font-size: 2.5rem; /* Aumenta um pouco o tamanho do título */
+  
+/* section alimentos - CARDS */
+/* Estilos para a seção de alimentos */
+.info-alimentacao {
+    width: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
 }
 
-/* O container principal dos cards */
+.container-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-principal h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Container dos cards com layout em Grid Fixo */
 .card-container {
-  display: flex; /* ATIVA O FLEXBOX */
-  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-  justify-content: center; /* Centraliza os cards horizontalmente */
-  padding: 20px; /* Adiciona um respiro nas laterais */
-  gap: 30px; /* Cria um espaço de 30px entre os cards (vertical e horizontal) */
+    display: grid;
+    /* Cria 3 colunas de tamanho igual */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espaçamento entre os cards */
 }
 
-/* Estilo de cada card individual */
+/* Estilo Individual do Card com a formatação de imagem grande */
 .card {
-  /* Define que cada card deve tentar ocupar 45% do espaço do container */
-  /* Isso garante que apenas 2 cards caibam por linha (45% + 45% = 90%) */
-  flex-basis: 45%; 
-
-  max-width: 450px; /* Define uma largura máxima para não ficarem gigantes em telas grandes */
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra um pouco mais suave */
-  padding: 20px;
-  text-align: center;
-  border-radius: 15px;
-  border: 1px solid #eee; /* Adiciona uma borda sutil */
+    background-color: #ffffff;
+    border-radius: 15px; /* Bordas arredondadas */
+    overflow: hidden; /* Garante que a imagem não vaze das bordas */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: left; /* Alinha todo o texto à esquerda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* estilo imagens dos cards */
 .card img {
-  width: 93px;
-  height: auto;
-  margin-bottom: 10px;
+    width: 100%; /* Ocupa toda a largura do card */
+    height: 180px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    display: block;
 }
 
+/* Conteúdo de Texto do Card */
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz esta área ocupar o espaço vertical restante */
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #7f8c8d;
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 8px;
+}
+
+.card p,
+.card ul {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.card ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.card li {
+    margin-bottom: 8px;
+}
+
+.card strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.card blockquote {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+    border-left: 4px solid #8AC26A; 
+    padding-left: 15px;
+    margin: auto 0 0 0; /* Empurra a citação para o final do card */
+    background-color: #f8f9fa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border-radius: 0 5px 5px 0;
+}
+
+/* media queries */
+@media (max-width: 992px) {
+    /* Em telas médias, muda para 2 colunas */
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Em telas pequenas (celulares), muda para 1 coluna */
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container-principal h1 {
+        font-size: 2rem;
+    }
+}
 /* Estilo geral da seção */
 section.pacientes {
     width: 100%;
@@ -486,6 +562,10 @@ section.pacientes {
 footer.rodape img {
     height: 60px; 
     width: auto;  
+}
+
+.img-icon{
+    border-radius: 50%;
 }
 
 footer.rodape p {
