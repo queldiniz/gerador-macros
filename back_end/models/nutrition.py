@@ -18,18 +18,21 @@ class NutritionModel(db.Model):
     gender = db.Column(db.String(10), nullable=False)
     activity_level = db.Column(db.String(20), nullable=False)
 
-    # Informações opcionais, podem ser nulas
-    calories = db.Column(db.Float(precision=2), nullable=True)
-    body_percentage = db.Column(db.Float(precision=2), nullable=True)
+    # Informações opcionais
+    calories = db.Column(db.Float(precision=2), nullable=True, default=0)
+    body_percentage = db.Column(db.Float(precision=2), nullable=True, default=0)
     
-    # Construtor da classe, para criar a instância a partir dos dados do controller
-    def __init__(self, name, height, weight, age, gender, activity_level, **kwargs):
+    # Construtor da classe
+    def __init__(self, name, height, weight, age, gender, activity_level,
+                 calories=0, body_percentage=0):
         self.name = name
         self.height = height
         self.weight = weight
         self.age = age
         self.gender = gender
         self.activity_level = activity_level
+        self.calories = calories
+        self.body_percentage = body_percentage
 
     # Métodos de consulta à base de dados
     @classmethod
@@ -48,4 +51,3 @@ class NutritionModel(db.Model):
     def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
-
