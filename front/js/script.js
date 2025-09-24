@@ -40,7 +40,20 @@ function renderTable(patients) {
       <td>${p.calories}</td>
       <td>${p.body_percentage}</td>
       <td>
-        <button class="table-btn btn-edit" onclick="editPatient(...)"><i class="fas fa-pencil"></i> Editar</button>
+            <button class="table-btn btn-edit"
+          onclick="editPatient(
+            ${p.id},
+            '${p.name}',
+            ${p.height},
+            ${p.weight},
+            ${p.age},
+            '${p.gender}',
+            '${p.activity_level}',
+            ${p.calories},
+            ${p.body_percentage}
+          )">
+          <i class="fas fa-pencil"></i> Editar
+        </button>
         <button class="table-btn btn-delete" onclick="deletePatient(${p.id})"><i class="fas fa-trash-can"></i> Excluir</button>
       </td>
     `;
