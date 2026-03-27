@@ -58,6 +58,13 @@ item_payload = nutrition_ns.model('NutritionPayload', {
         example='Moderadamente Ativo',
         enum=['Sedentário', 'Levemente Ativo', 'Moderadamente Ativo', 'Ativo', 'Muito Ativo']
     ),
+
+    'objective': fields.String(
+        description='Objetivo da Dieta',
+        example='Emagrecimento',
+        enum=['Emagrecimento', 'Hipertrofia', 'Manutenção']
+    ),
+    
     'calories': fields.Float(
         default=0,
         description='Quantidade de calorias diárias consumidas',

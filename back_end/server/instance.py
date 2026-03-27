@@ -1,6 +1,8 @@
 from flask import Flask, Blueprint
 from flask_restx import Api
 from back_end.controllers.nutrition import nutrition_ns
+from back_end.controllers.fatsecret import ns as alimentos_ns
+from back_end.controllers.refeicoes import refeicoes_ns
 
 class Server():
     def __init__(self):
@@ -28,6 +30,8 @@ class Server():
         # Regista o namespace importado do controller
         # O path '/nutrition' define que todas as rotas dentro do namespace começarão com /api/nutrition
         self.api.add_namespace(nutrition_ns, path='/nutrition')
+        self.api.add_namespace(alimentos_ns, path='/alimentos')
+        self.api.add_namespace(refeicoes_ns, path='/refeicoes')
 
     def run(self):
         self.app.run(
