@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+instance/data.sqlite3
+.env
+.git
+.gitignore
+back_end/img-readme/
