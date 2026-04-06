@@ -4,6 +4,7 @@ from back_end.controllers.pacientes import nutrition_ns
 from back_end.controllers.fatsecret import ns as alimentos_ns
 from back_end.controllers.refeicoes import refeicoes_ns
 from back_end.controllers.historico import historico_ns
+from back_end.controllers.share import share_ns, public_ns
 
 class Server():
     def __init__(self):
@@ -34,6 +35,8 @@ class Server():
         self.api.add_namespace(alimentos_ns, path='/alimentos')
         self.api.add_namespace(refeicoes_ns, path='/refeicoes')
         self.api.add_namespace(historico_ns, path='/historico')
+        self.api.add_namespace(share_ns, path='/nutrition')
+        self.api.add_namespace(public_ns, path='/public')
 
     def run(self):
         self.app.run(

@@ -4,6 +4,7 @@ from db import db
 from back_end.server.instance import server
 from back_end.controllers import pacientes  # importa para registrar o namespace
 from back_end.controllers.historico import historico_ns
+from back_end.models.share_token import ShareTokenModel  # garante criacao da tabela
 
 # inicializando API e APP
 api = server.api
