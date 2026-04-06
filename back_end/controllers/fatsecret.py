@@ -2,12 +2,16 @@ import requests
 from flask import request
 from flask_restx import Resource, Namespace
 
+from dotenv import load_dotenv 
+import os 
+load_dotenv()
+
 # Cria um novo agrupamento no seu Swagger chamado alimentos
 ns = Namespace('alimentos', description='Consultas na API da FatSecret')
 
 # Suas chaves de acesso geradas na plataforma
-FATSECRET_CLIENT_ID = "7c12c730110c4371b10780e72e55706c"
-FATSECRET_CLIENT_SECRET = "9f7ac27001144e9e8360dcddca6272d9"
+FATSECRET_CLIENT_ID = os.environ.get("FATSECRET_CLIENT_ID")
+FATSECRET_CLIENT_SECRET = os.environ.get("FATSECRET_CLIENT_SECRET")
 
 @ns.route('/buscar')
 class FatSecretSearch(Resource):
