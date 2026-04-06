@@ -21,7 +21,7 @@ class ShareTokenModel(db.Model):
     label = db.Column(db.String(100), nullable=True)
 
     # Relacionamento reverso — NutritionModel NAO e modificado (backref injeta automaticamente)
-    paciente = db.relationship('NutritionModel', backref=db.backref('share_tokens', lazy=True))
+    paciente = db.relationship('NutritionModel', backref=db.backref('share_tokens', lazy=True, cascade="all, delete-orphan"))
 
     def __init__(self, paciente_id, expires_at=None, label=None):
         self.token = str(uuid.uuid4())

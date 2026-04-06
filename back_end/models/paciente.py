@@ -22,7 +22,7 @@ class NutritionModel(db.Model):
     # Liga o paciente com a dieta
     refeicoes = db.relationship('RefeicaoModel', backref='paciente', lazy=True, cascade="all, delete-orphan")
     
-    # 👇 NOVA LINHA AQUI: Liga o paciente com o histórico (gráficos)
+    #Liga o paciente com o histórico (gráficos)
     historico = db.relationship('HistoricoModel', lazy='dynamic', cascade="all, delete-orphan")
 
     def __init__(self, name, height, weight, age, gender, activity_level, calories=0, body_percentage=0, objective="Manutenção"):
@@ -53,9 +53,8 @@ class NutritionModel(db.Model):
         db.session.commit()
 
 
-# ==========================================
 # TABELA: REFEIÇÕES (DIETA DO PACIENTE)
-# ==========================================
+# 
 class RefeicaoModel(db.Model):
     """
     Esta classe representa os alimentos salvos para um paciente específico.
@@ -94,10 +93,9 @@ class RefeicaoModel(db.Model):
         return cls.query.filter_by(paciente_id=paciente_id).all()
 
 
-# 👇 TUDO A PARTIR DAQUI É NOVO: A TABELA DE HISTÓRICO!
-# ==========================================
+
 # TABELA: HISTÓRICO (EVOLUÇÃO DO PACIENTE)
-# ==========================================
+# 
 class HistoricoModel(db.Model):
     """
     Esta classe representa o histórico de peso e gordura do paciente para os gráficos.
