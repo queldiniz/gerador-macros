@@ -16,11 +16,14 @@ class NutritionModel(db.Model):
     calories = db.Column(db.Float(precision=2), nullable=True, default=0)
     body_percentage = db.Column(db.Float(precision=2), nullable=True, default=0)
     
-    # NOVA LINHA: O relacionamento! 
     objective = db.Column(db.String(50), nullable=True, default="Manutenção")
-    # Isso diz ao SQLAlchemy que um paciente tem várias refeições. 
-    # O cascade="all, delete-orphan" apaga as refeições automaticamente se o paciente for excluído.
+    
+    # --- RELACIONAMENTOS ---
+    # Liga o paciente com a dieta
     refeicoes = db.relationship('RefeicaoModel', backref='paciente', lazy=True, cascade="all, delete-orphan")
+    
+    # 👇 NOVA LINHA AQUI: Liga o paciente com o histórico (gráficos)
+    historico = db.relationship('HistoricoModel', lazy='dynamic', cascade="all, delete-orphan")
 
     def __init__(self, name, height, weight, age, gender, activity_level, calories=0, body_percentage=0, objective="Manutenção"):
         self.name = name
@@ -32,7 +35,6 @@ class NutritionModel(db.Model):
         self.calories = calories
         self.body_percentage = body_percentage
         self.objective = objective
-
 
     @classmethod
     def find_by_id(cls, id):
@@ -52,7 +54,7 @@ class NutritionModel(db.Model):
 
 
 # ==========================================
-# NOVA TABELA: REFEIÇÕES (DIETA DO PACIENTE)
+# TABELA: REFEIÇÕES (DIETA DO PACIENTE)
 # ==========================================
 class RefeicaoModel(db.Model):
     """
@@ -66,16 +68,17 @@ class RefeicaoModel(db.Model):
     carbs = db.Column(db.Float, nullable=True, default=0)
     protein = db.Column(db.Float, nullable=True, default=0)
     fat = db.Column(db.Float, nullable=True, default=0)
+    tipo_refeicao = db.Column(db.String(50), nullable=False)
     
-    # A Chave Estrangeira: Liga este alimento ao 'id' da tabela 'nutrition'
     paciente_id = db.Column(db.Integer, db.ForeignKey('nutrition.id'), nullable=False)
 
-    def __init__(self, food_name, calories, carbs, protein, fat, paciente_id):
+    def __init__(self, food_name, calories, carbs, protein, fat, tipo_refeicao, paciente_id):
         self.food_name = food_name
         self.calories = calories
         self.carbs = carbs
         self.protein = protein
         self.fat = fat
+        self.tipo_refeicao = tipo_refeicao
         self.paciente_id = paciente_id
 
     def save_to_db(self):
@@ -88,5 +91,33 @@ class RefeicaoModel(db.Model):
 
     @classmethod
     def find_by_paciente(cls, paciente_id):
-        # Busca todas as refeições que pertencem a um paciente específico
         return cls.query.filter_by(paciente_id=paciente_id).all()
+
+
+# 👇 TUDO A PARTIR DAQUI É NOVO: A TABELA DE HISTÓRICO!
+# ==========================================
+# TABELA: HISTÓRICO (EVOLUÇÃO DO PACIENTE)
+# ==========================================
+class HistoricoModel(db.Model):
+    """
+    Esta classe representa o histórico de peso e gordura do paciente para os gráficos.
+    """
+    __tablename__ = 'historico'
+
+    id = db.Column(db.Integer, primary_key=True)
+    data_registro = db.Column(db.String(50), nullable=False)
+    peso = db.Column(db.Float(precision=2), nullable=False)
+    gordura = db.Column(db.Float(precision=2), nullable=False)
+    
+    # A Chave Estrangeira: Liga este registro ao 'id' da tabela 'nutrition'
+    paciente_id = db.Column(db.Integer, db.ForeignKey('nutrition.id'), nullable=False)
+
+    def __init__(self, data_registro, peso, gordura, paciente_id):
+        self.data_registro = data_registro
+        self.peso = peso
+        self.gordura = gordura
+        self.paciente_id = paciente_id
+
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()

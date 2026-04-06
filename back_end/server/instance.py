@@ -1,8 +1,9 @@
 from flask import Flask, Blueprint
 from flask_restx import Api
-from back_end.controllers.nutrition import nutrition_ns
+from back_end.controllers.pacientes import nutrition_ns
 from back_end.controllers.fatsecret import ns as alimentos_ns
 from back_end.controllers.refeicoes import refeicoes_ns
+from back_end.controllers.historico import historico_ns
 
 class Server():
     def __init__(self):
@@ -32,6 +33,7 @@ class Server():
         self.api.add_namespace(nutrition_ns, path='/nutrition')
         self.api.add_namespace(alimentos_ns, path='/alimentos')
         self.api.add_namespace(refeicoes_ns, path='/refeicoes')
+        self.api.add_namespace(historico_ns, path='/historico')
 
     def run(self):
         self.app.run(

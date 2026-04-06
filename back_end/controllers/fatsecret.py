@@ -2,7 +2,7 @@ import requests
 from flask import request
 from flask_restx import Resource, Namespace
 
-# Cria um novo "agrupamento" no seu Swagger chamado "alimentos"
+# Cria um novo agrupamento no seu Swagger chamado alimentos
 ns = Namespace('alimentos', description='Consultas na API da FatSecret')
 
 # Suas chaves de acesso geradas na plataforma
@@ -41,7 +41,7 @@ class FatSecretSearch(Resource):
                 "search_expression": alimento,
                 "format": "json",
                 "max_results": 5,
-                 "region": "BR",
+                "region": "BR",
                 "language": "pt" # Traz os 5 resultados mais relevantes
             }
             

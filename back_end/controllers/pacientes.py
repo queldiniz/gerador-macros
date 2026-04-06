@@ -3,8 +3,8 @@ from flask import request
 from flask_restx import Resource, fields, Namespace
 
 # Importações dos seus modelos e schemas
-from back_end.models.nutrition import NutritionModel
-from back_end.schemas.nutrition import NutritionSchema
+from back_end.models.paciente import NutritionModel
+from back_end.schemas.paciente import NutritionSchema
 
 # Criando namespace para organizar as rotas relacionadas com nutrition
 nutrition_ns = Namespace(
@@ -78,7 +78,7 @@ item_payload = nutrition_ns.model('NutritionPayload', {
     )
 })
 
-# Modelo de dados para a resposta de sucesso (usado com @marshal_with)
+# Modelo de dados para a resposta de sucesso
 nutrition_response_model = nutrition_ns.inherit('NutritionResponse', item_payload, {
     'id': fields.Integer(readonly=True, description='O ID único do registro')
 })
@@ -103,7 +103,7 @@ validation_error_model = nutrition_ns.model('ValidationError', {
 
 # Exemplo de payload para o Swagger UI
 nutrition_example_payload = {
-    'name': 'Joana Doe',
+    'name': 'Joana Dias',
     'height': 1.70,
     'weight': 68.5,
     'age': 32,
