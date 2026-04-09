@@ -22,7 +22,7 @@ item_payload = nutrition_ns.model('NutritionPayload', {
     'name': fields.String(
         required=True,
         description='Nome do paciente',
-        example='Joana Doe',
+        example='Joana Dias',
         pattern='^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$'
     ),
     'height': fields.Float(
