@@ -10,7 +10,7 @@ from back_end.models.share_token import ShareTokenModel  # garante criacao da ta
 api = server.api
 app = server.app
 
-# Habilita CORS de forma global, com a sua configuração perfeita!
+# Habilita CORS de forma global para todas as rotas da API, permitindo acesso de qualquer origem.
 CORS(
     app,
     resources={r"/api/*": {"origins": "*"}},
