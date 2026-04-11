@@ -28,13 +28,14 @@ O objetivo principal é fornecer endpoints para realizar as operações de um si
 
 - **Linguagem:** Python 3.12
 - **Framework Web:** Flask + Flask-RestX (Arquitetura baseada em Namespaces)
-- **ORM & Banco de Dados:** SQLAlchemy com persistência em SQLite.
+- **ORM & Banco de Dados:** SQLAlchemy com persistência em SQLite. Marshmallow (Flask-Marshmallow) para serialização e desserialização dos modelos.
 - **Servidor de Produção:** **Gunicorn** (Servidor WSGI). Utilizado para gerenciar múltiplos "workers" (processos paralelos), permitindo que a API lide com dezenas de requisições simultâneas sem perdas de performance.
 - **Infraestrutura:** **Docker**. O projeto utiliza uma imagem `python:3.12-slim` para otimizar o tamanho final do contêiner e garantir o funcionamento idêntico em qualquer ambiente. O Compose também realiza healthchecks periódicos na API.
 
 ## 🔒 Segurança e Compartilhamento (Tokens UUID)
 
 A funcionalidade de acesso dos pacientes aos seus próprios dados utiliza uma arquitetura de segurança rigorosa:
+
 - **Tokens UUID v4:** São gerados identificadores de 128 bits aleatórios, tornando impossível adivinhar a URL de outro paciente. O ID real do banco de dados nunca é exposto.
 - **Validação:** A API verifica a validade do token (`is_active` e datas de expiração) antes de permitir a visualização.
 - **Isolamento Read-Only:** As rotas públicas (`/api/public/`) aceitam apenas requisições `GET`, garantindo que ninguém altere os dados externamente.
@@ -62,39 +63,35 @@ O projeto foi construído para ser executado integralmente via Docker. Isso sign
 
 Siga os passos abaixo para rodar o projeto do zero:
 
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/queldiniz/gerador-macros.git
+    cd gerador-macros
+    ```
+2.  **Configurar as Variáveis de Ambiente (.env)**
+    Para que o servidor consiga se comunicar com a API de alimentos, você precisa configurar suas chaves de acesso seguras.
 
-1. **Clone o repositório:**
-   ```bash
-    > git clone [https://github.com/seu-usuario/gerador-macros.git](https://github.com/seu-usuario/gerador-macros.git)
-    > cd gerador-macros/back_end
-  
-   ```
-   
-2. **Configurar as Variáveis de Ambiente (.env)**
-Para que o servidor consiga se comunicar com a API de alimentos, você precisa configurar suas chaves de acesso seguras.
+        1. Na pasta do projeto, localize o arquivo chamado `.env.sample`.
 
-    1. Na pasta do projeto, localize o arquivo chamado `.env.sample`.
-    
-    2. Crie uma cópia desse arquivo e renomeie a cópia para `.env` (exatamente assim, com o ponto no início).
-    
-    3. Abra o arquivo `.env` no seu editor de código.
+        2. Crie uma cópia desse arquivo e renomeie a cópia para `.env` (exatamente assim, com o ponto no início).
 
-    4. Cole as chaves que você gerou no site do FatSecret.
-  ```bash
-      FATSECRET_CLIENT_ID=cole_seu_id_aqui
-      FATSECRET_CLIENT_SECRET=cole_seu_secret_aqui
-  ```
+        3. Abra o arquivo `.env` no seu editor de código.
+
+        4. Cole as chaves que você gerou no site do FatSecret.
+
+```bash
+    FATSECRET_CLIENT_ID=cole_seu_id_aqui
+    FATSECRET_CLIENT_SECRET=cole_seu_secret_aqui
+```
 
 3. **Rodar o Projeto com Docker**
+
 ```bash
   docker compose up --build -d
-   ```
-
+```
 
 4. **Acessar a Aplicação**
-```bash    
+
+```bash
    O Docker vai baixar as dependências e subir o servidor na porta 5000. O banco de dados (data.sqlite3) será criado e salvo
-   ```
-
-
-   
+```
